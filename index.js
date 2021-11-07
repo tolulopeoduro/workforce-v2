@@ -17,7 +17,7 @@ MongoClient.connect(connectionString  , ((err , client) => {
     if (err) {
         console.log(err)
     }
-    app.locals.db = client
+    app.locals.client = client
     app.listen(process.env.PORT || 6001)
     console.log("connected")
 }))
