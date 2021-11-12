@@ -1,13 +1,12 @@
 import express, { Router } from "express"
-import { getUser } from "../controllers/user/getUser"
-import { login } from "../controllers/user/login"
-import { signup } from "../controllers/user/signup"
+import { getUser } from "../controllers/auth/getUser"
+import { login } from "../controllers/auth/login"
+import { signup } from "../controllers/auth/signup"
 
-const userRoutes = new Router()
+const authRoutes = new Router()
 
-userRoutes.post("/login" , login)
-userRoutes.post("/signup" , signup)
-userRoutes.get("/:id" , getUser)
+authRoutes.post("/login" , login)
+authRoutes.post("/signup" , signup)
 
 
-export default userRoutes
+export default authRoutes
