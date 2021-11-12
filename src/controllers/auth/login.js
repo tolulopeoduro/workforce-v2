@@ -2,10 +2,9 @@ const { compare } = require("bcrypt")
 const jwt = require("jsonwebtoken")
 
 exports.login = (req , res ) => {
-    const client = req.app.locals.db
+    const client = req.app.locals.client
     client.db("workforce-v2").collection("users").findOne({email : req.body.email})
     .then(user => {
-        console.log(req.body)
         if (!user) {
             return res.status(401).json({
                 message : "user not found"

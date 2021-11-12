@@ -4,7 +4,7 @@ const mongodb = require("../../../index")
 
 
 exports.signup = async (req , res) => {
-    const client = req.app.locals.db;
+    const client = req.app.locals.client;
 
     const p = await client.db("workforce-v2").collection("users").find({email : req.body.email}).count()
     if (p > 0) {
